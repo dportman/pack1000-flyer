@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Cub Scouts Pack 1000 Recruiting Flyer</title>
+<style>
+  @page {
+    size: letter;
+    margin: 0;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html, body {
+    width: 8.5in;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    color: #102a54;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .page {
+    width: 8.5in;
+    height: 11in;
+    page-break-after: always;
+    position: relative;
+    overflow: hidden;
+    background: #fff;
+  }
+  .page:last-child { page-break-after: auto; }
+
+  /* ============ FRONT PAGE ============ */
+  .front {
+    background: #102a54;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .hero {
+    position: relative;
+    height: 5.6in;
+    overflow: hidden;
+    background: #000;
+  }
+  .hero img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 35%;
+  }
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(16,42,84,0.25) 0%, rgba(16,42,84,0.05) 40%, rgba(16,42,84,0.95) 100%);
+  }
+
+  .top-bar {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    padding: 0.35in 0.5in 0.25in;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 2;
+  }
+  .top-bar .badge {
+    background: #f5b922;
+    color: #102a54;
+    font-weight: 900;
+    letter-spacing: 0.1em;
+    padding: 0.08in 0.18in;
+    font-size: 11pt;
+    border-radius: 2px;
+  }
+  .top-bar .location {
+    color: #fff;
+    font-size: 10.5pt;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-shadow: 0 1px 4px rgba(0,0,0,0.5);
+  }
+
+  .headline-block {
+    position: absolute;
+    left: 0.5in;
+    right: 0.5in;
+    bottom: 0.35in;
+    z-index: 2;
+  }
+  .kicker {
+    font-size: 13pt;
+    font-weight: 700;
+    color: #f5b922;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    margin-bottom: 0.08in;
+  }
+  .headline {
+    font-size: 64pt;
+    line-height: 0.92;
+    font-weight: 900;
+    letter-spacing: -0.02em;
+    color: #fff;
+    text-shadow: 0 2px 12px rgba(0,0,0,0.45);
+    margin-bottom: 0.12in;
+  }
+  .headline .accent { color: #f5b922; }
+  .subhead {
+    font-size: 15pt;
+    line-height: 1.3;
+    font-weight: 500;
+    color: #fff;
+    max-width: 6.5in;
+    text-shadow: 0 1px 6px rgba(0,0,0,0.4);
+  }
+
+  .body-section {
+    flex: 1;
+    padding: 0.4in 0.5in 0.3in;
+    background: #102a54;
+    color: #fff;
+    display: flex;
+    gap: 0.35in;
+  }
+
+  .body-left { flex: 1.2; }
+  .body-left .intro {
+    font-size: 11.5pt;
+    line-height: 1.45;
+    margin-bottom: 0.22in;
+  }
+  .body-left .intro strong { color: #f5b922; }
+
+  .why-title {
+    font-size: 14pt;
+    font-weight: 900;
+    color: #f5b922;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 0.1in;
+    border-bottom: 2px solid #f5b922;
+    padding-bottom: 0.05in;
+  }
+
+  .features {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.07in 0.2in;
+    font-size: 10.5pt;
+    line-height: 1.35;
+  }
+  .features .feat {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.08in;
+  }
+  .features .feat::before {
+    content: "";
+    flex-shrink: 0;
+    width: 9px;
+    height: 9px;
+    background: #f5b922;
+    transform: rotate(45deg);
+    margin-top: 5px;
+  }
+  .features .feat strong { color: #f5b922; font-weight: 800; }
+
+  .scout-law {
+    margin-top: 0.18in;
+    padding: 0.1in 0.14in;
+    border-top: 1px solid rgba(245, 185, 34, 0.45);
+    border-bottom: 1px solid rgba(245, 185, 34, 0.45);
+    font-size: 9.5pt;
+    line-height: 1.4;
+    color: #fff;
+    font-style: italic;
+    text-align: center;
+  }
+  .scout-law .law-label {
+    display: block;
+    font-style: normal;
+    font-size: 8.5pt;
+    font-weight: 900;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #f5b922;
+    margin-bottom: 0.04in;
+  }
+
+  .body-right {
+    flex: 0 0 2.1in;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+  }
+  .logo-wrap {
+    width: 2.1in;
+    height: 2.1in;
+    overflow: hidden;
+    border-radius: 6px;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.35);
+  }
+  .logo-wrap img { width: 100%; height: 100%; object-fit: cover; }
+
+  .info-night {
+    margin-top: 0.18in;
+    background: #f5b922;
+    color: #102a54;
+    text-align: center;
+    padding: 0.14in 0.15in 0.16in;
+    border-radius: 5px;
+    width: 100%;
+    border: 2px solid #102a54;
+  }
+  .info-night .info-label {
+    font-size: 10pt;
+    font-weight: 900;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    border-bottom: 1.5px solid #102a54;
+    padding-bottom: 0.06in;
+    margin-bottom: 0.08in;
+  }
+  .info-night .info-date {
+    font-size: 18pt;
+    font-weight: 900;
+    line-height: 1.05;
+  }
+  .info-night .info-time {
+    font-size: 15.5pt;
+    font-weight: 800;
+  }
+  .info-night .info-venue {
+    font-size: 11pt;
+    font-weight: 700;
+    line-height: 1.3;
+    margin-top: 0.08in;
+    padding-top: 0.07in;
+    border-top: 1.5px solid #102a54;
+  }
+  .info-night .smores {
+    margin-top: 0.09in;
+    background: #102a54;
+    color: #f5b922;
+    font-size: 11pt;
+    font-weight: 900;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    padding: 0.07in 0.1in;
+    border-radius: 3px;
+  }
+
+  /* ============ BACK PAGE ============ */
+  .back {
+    background: #fff;
+    color: #102a54;
+    padding: 0.35in 0.5in 0.3in;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .back-header {
+    text-align: center;
+    margin-bottom: 0.12in;
+  }
+  .back-header .eyebrow {
+    font-size: 9.5pt;
+    font-weight: 800;
+    letter-spacing: 0.22em;
+    color: #c8941a;
+    text-transform: uppercase;
+  }
+  .back-header h1 {
+    font-size: 26pt;
+    font-weight: 900;
+    line-height: 0.95;
+    color: #102a54;
+    margin-top: 0.04in;
+    letter-spacing: -0.01em;
+  }
+  .back-header h1 .y { color: #f5b922; }
+  .back-header .lede {
+    font-size: 10.5pt;
+    color: #4a5878;
+    margin-top: 0.05in;
+    line-height: 1.35;
+    max-width: 6.8in;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .photo-strip {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 0.08in;
+    margin: 0.03in 0 0.14in;
+  }
+  .photo-strip .ph {
+    height: 1.1in;
+    overflow: hidden;
+    border-radius: 4px;
+    position: relative;
+  }
+  .photo-strip .ph img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+  }
+  .photo-strip .ph.face img { object-position: center 18%; }
+  .photo-strip .ph .cap {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    background: linear-gradient(180deg, rgba(16,42,84,0) 0%, rgba(16,42,84,0.92) 100%);
+    color: #f5b922;
+    font-size: 8.5pt;
+    font-weight: 900;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 0.18in 0.1in 0.07in;
+    text-align: center;
+  }
+
+  .two-col {
+    display: grid;
+    grid-template-columns: 1.05fr 1fr;
+    gap: 0.25in;
+    margin-bottom: 0.12in;
+  }
+
+  .section-title {
+    font-size: 13pt;
+    font-weight: 900;
+    color: #102a54;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 0.08in;
+    padding-bottom: 0.04in;
+    border-bottom: 3px solid #f5b922;
+  }
+
+  .calendar {
+    background: #f5f3ec;
+    border-radius: 5px;
+    padding: 0.16in 0.18in;
+  }
+  .calendar ul { list-style: none; }
+  .calendar li {
+    display: flex;
+    align-items: baseline;
+    font-size: 10pt;
+    line-height: 1.35;
+    padding: 0.045in 0;
+    border-bottom: 1px dashed #d8d2bf;
+  }
+  .calendar li:last-child { border-bottom: none; }
+  .calendar .note {
+    font-size: 9pt;
+    line-height: 1.35;
+    color: #4a4636;
+    padding: 0.07in 0 0.02in;
+    font-style: italic;
+  }
+  .calendar .mo {
+    flex: 0 0 0.8in;
+    font-weight: 900;
+    color: #c8941a;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-size: 9pt;
+  }
+  .calendar .ev { color: #102a54; font-weight: 500; }
+
+  .special ul { list-style: none; }
+  .special li {
+    font-size: 10pt;
+    line-height: 1.35;
+    padding: 0.055in 0 0.055in 0.22in;
+    position: relative;
+  }
+  .special li::before {
+    content: "★";
+    color: #f5b922;
+    position: absolute;
+    left: 0;
+    top: 0.045in;
+    font-size: 11pt;
+  }
+  .special .who {
+    margin-top: 0.13in;
+    padding: 0.12in 0.14in;
+    background: #102a54;
+    color: #fff;
+    border-radius: 5px;
+  }
+  .special .who .label {
+    font-size: 8.5pt;
+    font-weight: 800;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #f5b922;
+  }
+  .special .who .copy {
+    font-size: 10pt;
+    line-height: 1.4;
+    margin-top: 0.04in;
+  }
+
+  .fees-banner {
+    background: #f5b922;
+    color: #102a54;
+    border-radius: 5px;
+    padding: 0.11in 0.2in;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0.14in;
+  }
+  .fees-banner .label {
+    font-size: 9.5pt;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+  }
+  .fees-banner .price {
+    font-size: 22pt;
+    font-weight: 900;
+    line-height: 1;
+  }
+  .fees-banner .price small {
+    font-size: 11pt;
+    font-weight: 700;
+  }
+  .fees-banner .note {
+    font-size: 9pt;
+    font-weight: 600;
+    max-width: 2.6in;
+    text-align: right;
+    line-height: 1.25;
+  }
+
+  .info-banner {
+    background: #fff;
+    color: #102a54;
+    border: 2.5px dashed #102a54;
+    border-radius: 5px;
+    padding: 0.11in 0.2in;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.2in;
+    margin-bottom: 0.14in;
+  }
+  .info-banner .ib-left { flex: 1; }
+  .info-banner .ib-eyebrow {
+    font-size: 9pt;
+    font-weight: 900;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #c8941a;
+  }
+  .info-banner .ib-title {
+    font-size: 15pt;
+    font-weight: 900;
+    line-height: 1.1;
+    color: #102a54;
+    margin-top: 0.02in;
+  }
+  .info-banner .ib-title .y { color: #c8941a; }
+  .info-banner .ib-right {
+    flex: 0 0 auto;
+    text-align: right;
+    font-size: 10pt;
+    font-weight: 700;
+    line-height: 1.3;
+    color: #102a54;
+    border-left: 2px solid #f5b922;
+    padding-left: 0.2in;
+  }
+  .info-banner .ib-right .venue {
+    font-size: 11pt;
+    font-weight: 900;
+  }
+
+  /* QR Section */
+  .cta-block {
+    margin-top: auto;
+    background: #102a54;
+    color: #fff;
+    border-radius: 6px;
+    padding: 0.18in 0.22in 0.16in;
+  }
+  .cta-headline {
+    text-align: center;
+    margin-bottom: 0.11in;
+  }
+  .cta-headline .big {
+    font-size: 17pt;
+    font-weight: 900;
+    line-height: 1.05;
+  }
+  .cta-headline .big .y { color: #f5b922; }
+  .cta-headline .sub {
+    font-size: 10pt;
+    color: #cdd6e8;
+    margin-top: 0.04in;
+  }
+
+  .qr-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.25in;
+  }
+  .qr-card {
+    background: #fff;
+    color: #102a54;
+    border-radius: 5px;
+    padding: 0.13in 0.13in 0.12in;
+    text-align: center;
+  }
+  .qr-card .qr-label {
+    font-size: 9.5pt;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: #c8941a;
+    margin-bottom: 0.06in;
+  }
+  .qr-card .qr-title {
+    font-size: 13pt;
+    font-weight: 900;
+    color: #102a54;
+    line-height: 1.05;
+    margin-bottom: 0.08in;
+  }
+  .qr-card .qr-img {
+    width: 1.3in;
+    height: 1.3in;
+    margin: 0 auto 0.06in;
+    display: block;
+  }
+  .qr-card .qr-url {
+    font-size: 9pt;
+    font-weight: 700;
+    color: #102a54;
+    word-break: break-all;
+  }
+
+  .contact-line {
+    text-align: center;
+    margin-top: 0.1in;
+    padding-top: 0.08in;
+    border-top: 1px solid rgba(245, 185, 34, 0.35);
+    font-size: 9.5pt;
+    color: #fff;
+    line-height: 1.4;
+  }
+  .contact-line .sep {
+    color: #6a7a99;
+    margin: 0 0.06in;
+  }
+  .contact-line .clabel {
+    color: #f5b922;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 8.5pt;
+  }
+  .contact-line .cname {
+    font-weight: 800;
+    color: #fff;
+  }
+  .contact-line .cmail {
+    font-weight: 700;
+    color: #f5b922;
+  }
+
+  .footer-line {
+    text-align: center;
+    margin-top: 0.08in;
+    font-size: 8pt;
+    color: #a8b3cc;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ FRONT (Page 1) ============ -->
+<section class="page front">
+  <div class="hero">
+    <img src="images/pinewood.png" alt="Pack 1000 scouts at Pinewood Derby">
+    <div class="hero-overlay"></div>
+
+    <div class="top-bar">
+      <div class="badge">CUB SCOUTS · PACK 1000</div>
+      <div class="location">Johns Creek · Shakerag &amp; Bell Road</div>
+    </div>
+
+    <div class="headline-block">
+      <div class="kicker">Now Enrolling · Grades K&ndash;5</div>
+      <div class="headline">Adventure<br>Starts <span class="accent">Here.</span></div>
+      <div class="subhead">Camping, Pinewood Derby, rockets, hiking, STEM, and lifelong friendships &mdash; real adventures for kids in Johns Creek.</div>
+    </div>
+  </div>
+
+  <div class="body-section">
+    <div class="body-left">
+      <p class="intro">Cub Scout <strong>Pack 1000</strong> helps boys and girls build confidence, leadership, friendships, and life skills through fun outdoor adventures and hands-on activities &mdash; in a welcoming, family-focused community.</p>
+
+      <div class="why-title">Why Join Cub Scouts?</div>
+      <div class="features">
+        <div class="feat"><div><strong>Camping</strong> &amp; outdoor adventures</div></div>
+        <div class="feat"><div><strong>Pinewood Derby</strong> car races</div></div>
+        <div class="feat"><div><strong>STEM</strong> &amp; hands-on projects</div></div>
+        <div class="feat"><div><strong>Leadership</strong> &amp; teamwork</div></div>
+        <div class="feat"><div><strong>Community service</strong> together</div></div>
+        <div class="feat"><div><strong>Games, crafts</strong>, new friendships</div></div>
+      </div>
+
+      <div class="scout-law">
+        <span class="law-label">The Scout Law</span>
+        A Scout is Trustworthy, Loyal, Helpful, Friendly, Courteous, Kind, Obedient, Cheerful, Thrifty, Brave, Clean, and Reverent.
+      </div>
+    </div>
+
+    <div class="body-right">
+      <div class="logo-wrap"><img src="images/logo.png" alt="P1K Pack 1000 logo"></div>
+      <div class="info-night">
+        <div class="info-label">Info Night &middot; Open House</div>
+        <div class="info-date">Wed, Aug&nbsp;12<br><span class="info-time">6:00 PM</span></div>
+        <div class="info-venue">Shakerag Pavilion<br>7220 Devonhall Way<br>Johns Creek, GA</div>
+        <div class="smores">S'mores on us!</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ BACK (Page 2) ============ -->
+<section class="page back">
+
+  <div class="back-header">
+    <div class="eyebrow">A Year With Pack 1000</div>
+    <h1>Real Adventures. <span class="y">Real Memories.</span></h1>
+    <div class="lede">From campouts and rocket launches to sleeping aboard the USS Yorktown &mdash; every month brings something new.</div>
+  </div>
+
+  <div class="photo-strip">
+    <div class="ph">
+      <img src="images/camping.png" alt="Scout setting up a tent">
+      <div class="cap">Campouts &amp; Hikes</div>
+    </div>
+    <div class="ph face">
+      <img src="images/scout.png" alt="Cub Scout in uniform">
+      <div class="cap">Service &amp; Community</div>
+    </div>
+    <div class="ph">
+      <img src="images/yorktown.png" alt="USS Yorktown campout">
+      <div class="cap">USS Yorktown Sleepover</div>
+    </div>
+  </div>
+
+  <div class="two-col">
+    <div>
+      <div class="section-title">Pack Calendar</div>
+      <div class="calendar">
+        <ul>
+          <li><span class="mo">Aug</span><span class="ev">Aquanaut Pack Meeting (Swimming Safety)</span></li>
+          <li><span class="mo">Sept</span><span class="ev">Bike Pack Meeting</span></li>
+          <li><span class="mo">Oct</span><span class="ev">Fall Campout &mdash; Bert Adams Scout Camp</span></li>
+          <li><span class="mo">Nov</span><span class="ev">Rockets Launch Day</span></li>
+          <li><span class="mo">Jan</span><span class="ev">Campout aboard USS Yorktown</span></li>
+          <li><span class="mo">Feb</span><span class="ev">Pinewood Derby Car Race</span></li>
+          <li><span class="mo">Mar</span><span class="ev">Blue &amp; Gold Banquet</span></li>
+        </ul>
+        <div class="note">One pack meeting and one den meeting per month &mdash; about 3 hours total.</div>
+      </div>
+    </div>
+
+    <div class="special">
+      <div class="section-title">What Makes Pack 1000 Special</div>
+      <ul>
+        <li>Active, welcoming Johns Creek community</li>
+        <li>Dedicated volunteer leaders &amp; engaged parents</li>
+        <li>Fun monthly pack activities and den meetings</li>
+        <li>Strong focus on character, leadership &amp; confidence</li>
+        <li>Safe outdoor experiences &mdash; away from screens</li>
+      </ul>
+      <div class="who">
+        <div class="label">Who Can Join</div>
+        <div class="copy">Youth in Kindergarten through 5th Grade &mdash; boys and girls of all backgrounds and faiths welcome. Scouts join age-based dens.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="fees-banner">
+    <div>
+      <div class="label">Annual Fee</div>
+      <div class="price">$180<small>/year</small></div>
+    </div>
+    <div class="note">Covers a full year of pack activities, awards, and adventures for each scout.</div>
+  </div>
+
+  <div class="info-banner">
+    <div class="ib-left">
+      <div class="ib-eyebrow">Come Meet Pack 1000 &middot; S'mores Served!</div>
+      <div class="ib-title">Info Night &middot; <span class="y">Wed, Aug&nbsp;12 &middot; 6:00 PM</span></div>
+    </div>
+    <div class="ib-right">
+      <div class="venue">Shakerag Pavilion</div>
+      7220 Devonhall Way<br>Johns Creek, GA
+    </div>
+  </div>
+
+  <!-- QR Code CTA Block -->
+  <div class="cta-block">
+    <div class="cta-headline">
+      <div class="big">Ready for Adventure? <span class="y">Join Pack 1000 Today!</span></div>
+      <div class="sub">Scan to learn more or sign up &mdash; or visit www.pack1000.org</div>
+    </div>
+    <div class="qr-row">
+      <div class="qr-card">
+        <div class="qr-label">Step 1 &middot; Learn</div>
+        <div class="qr-title">More Info</div>
+        <img class="qr-img" src="images/qr-info.png" alt="More info QR code">
+        <div class="qr-url">pack1000.org/request-info</div>
+      </div>
+      <div class="qr-card">
+        <div class="qr-label">Step 2 &middot; Join</div>
+        <div class="qr-title">Sign Up Online</div>
+        <img class="qr-img" src="images/qr-signup.png" alt="Sign up QR code">
+        <div class="qr-url">pack1000.org/signup</div>
+      </div>
+    </div>
+    <div class="contact-line">
+      <span class="clabel">Questions?</span> <span class="cname">Cubmaster Dr. Danny Portman</span> <span class="sep">&middot;</span> <span class="cmail">pack1000cubscouts@gmail.com</span> <span class="sep">&middot;</span> www.pack1000.org
+    </div>
+  </div>
+
+</section>
+
+</body>
+</html>
